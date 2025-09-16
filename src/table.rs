@@ -1,19 +1,23 @@
+mod cell;
+mod location;
+mod value;
+mod expression;
+
 use std::collections::HashMap;
 
-use crate::value::Value;
-
-#[derive(Hash, PartialEq, Eq)]
-pub struct Location {
-    column: u16,
-    row: u64
-}
+pub use cell::Cell;
+pub use location::Location;
+pub use value::Value;
+pub use expression::Expression;
 
 pub struct Table {
-    table: HashMap<Location, Value>
+    cells: HashMap<Location, Cell>
 }
 
 impl Table {
-    fn new() -> Self {
-        Self { table: HashMap::new() }
+    pub fn new() -> Self {
+        Self {
+            cells: HashMap::new()
+        }
     }
 }
